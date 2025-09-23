@@ -51,6 +51,9 @@
               isNormalUser = true;
               description = "aly";
               hashedPassword = "$y$j9T$Q.yFJjo9LMA8o.7Ac5uSr/$Y8pYIPSzCXHSd4nAlUohaaohwpquK6XEIjxFKq3J4s/";
+              openssh.authorizedKeys.keys = import builtins.fetchurl {
+                url = "https://aly.pet/authorized_keys.nix";
+              };
               extraGroups = [ "networkmanager" "wheel" ];
             };
           

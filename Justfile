@@ -2,10 +2,10 @@ up:
   nix flake update
 
 deploy:
-  nixos-rebuild switch --flake . --use-remote-sudo
+  nixos-rebuild switch --flake .
 
 debug:
-  nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake . --show-trace --verbose
 
 # Update specific input
 # usage: make upp i=home-manager
