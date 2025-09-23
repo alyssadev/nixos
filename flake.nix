@@ -7,14 +7,17 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    authorizedKeys = builtins.fetchurl {
+      url = "https://aly.pet/authorized_keys.nix";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, authorizedKeys, ... }: {
     nixosConfigurations = {
       aly-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hardware-configuration.nix
+          ./hw-aly-laptop.nix
           ({ config, pkgs, ... }: {
             networking.hostName = "aly-laptop";
             services.logind = {
@@ -51,9 +54,7 @@
               isNormalUser = true;
               description = "aly";
               hashedPassword = "$y$j9T$Q.yFJjo9LMA8o.7Ac5uSr/$Y8pYIPSzCXHSd4nAlUohaaohwpquK6XEIjxFKq3J4s/";
-              openssh.authorizedKeys.keys = import builtins.fetchurl {
-                url = "https://aly.pet/authorized_keys.nix";
-              };
+              openssh.authorizedKeys.keys = import authorizedKeys;
               extraGroups = [ "networkmanager" "wheel" ];
             };
           
