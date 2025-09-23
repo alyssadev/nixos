@@ -30,6 +30,8 @@
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
             environment.systemPackages = with pkgs; [
               just
+              cargo
+              rustc
               git
               vim
               wget
