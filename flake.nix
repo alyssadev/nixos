@@ -29,13 +29,7 @@
             boot.loader.efi.canTouchEfiVariables = true;
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
             environment.systemPackages = with pkgs; [
-              just
-              cargo
-              rustc
-              git
-              vim
-              wget
-              obs-studio
+              cargo rustc just git vim wget obs-studio gcc gnumake autoconf automake pkg-config
             ];
             environment.variables.EDITOR = "vim";
             security.sudo.wheelNeedsPassword = false;
