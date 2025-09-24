@@ -8,7 +8,7 @@
     "Xft.dpi" = 300;
   };
   home.packages = with pkgs; [
-    gnome-tweaks obs-studio rpi-imager google-cloud-sdk
+    gnome-tweaks obs-studio rpi-imager google-cloud-sdk supersonic
     neofetch nnn zip xz unzip p7zip ripgrep jq yq-go mtr iperf3 dnsutils
     ldns aria2 socat nmap ipcalc file which tree gnused gnutar gawk zstd
     gnupg btop iotop iftop strace ltrace lsof sysstat lm_sensors ethtool
