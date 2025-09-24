@@ -12,6 +12,9 @@
   networking.networkmanager.enable = true;
 
   services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "com.moonlight_stream.Moonlight"
+  ];
   services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
