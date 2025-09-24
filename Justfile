@@ -9,15 +9,15 @@ boot:
 
 commit:
   git add .
-  git commit -a -m "update"
+  -git commit -a -m "update"
 
-_switch: commit
+_switch:
   nixos-rebuild switch --flake . --use-remote-sudo
 
 push:
   git push origin --all
 
-switch: _switch push
+switch: commit _switch push
 
 debug:
   nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
