@@ -6,7 +6,8 @@
   environment.systemPackages = with pkgs; [
     cargo rustc just git vim wget gcc gnumake autoconf automake pkg-config cifs-utils
   ];
-  environment.variables.EDITOR = "vim";
+  programs.nixvim.enable = true;
+  programs.nixvim.defaultEditor = true;
   security.sudo.wheelNeedsPassword = false;
 
   networking.networkmanager.enable = true;
