@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/aly";
   xresources.properties = {
     "Xcursor.size" = 16;
-    "Xft.dpi" = 150;
+    "Xft.dpi" = 300;
   };
   home.packages = with pkgs; [
     gnome-tweaks obs-studio rpi-imager google-cloud-sdk
@@ -17,10 +17,13 @@
 
   programs.firefox = {
     enable = true;
-    profiles.default.extensions = {
-      packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin bitwarden darkreader indie-wiki-buddy sponsorblock
-      ];
+    profiles.default = {
+      settings.extensions.autoDisableScopes = 0;
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin bitwarden darkreader indie-wiki-buddy sponsorblock
+        ];
+      };
     };
   };
 
