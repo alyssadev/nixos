@@ -14,15 +14,20 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, nixos-generators, nur, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, nixos-generators, nur, nixvim, ... }: {
     nixosConfigurations = {
       "aly-laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           nur.modules.nixos.default
           nix-flatpak.nixosModules.nix-flatpak
+          nixvim.nixosModules.nixvim
           ./hw/aly-laptop.nix
           ./system/aly-laptop.nix
           ./system/global.nix
