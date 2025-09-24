@@ -6,9 +6,13 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, nixos-generators, ... }: {
     nixosConfigurations = {
       "aly-laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

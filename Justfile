@@ -1,6 +1,9 @@
 up:
   nix flake update
 
+check:
+  nix flake check
+
 boot:
   nixos-rebuild boot --flake . --use-remote-sudo
 
@@ -8,8 +11,13 @@ commit:
   git add .
   git commit -a -m "update"
 
-switch: commit
+_switch: commit
   nixos-rebuild switch --flake . --use-remote-sudo
+
+push:
+  git push origin --all
+
+switch: _switch push
 
 debug:
   nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
