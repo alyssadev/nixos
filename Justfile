@@ -4,9 +4,11 @@ up:
 boot:
   nixos-rebuild boot --flake . --use-remote-sudo
 
-switch:
+commit:
   git add .
   git commit -a -m "update"
+
+switch: commit
   nixos-rebuild switch --flake . --use-remote-sudo
 
 debug:
