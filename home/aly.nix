@@ -3,6 +3,9 @@
 {
   home.username = "aly";
   home.homeDirectory = "/home/aly";
+  services.flatpak.packages = [
+    "com.moonlight_stream.Moonlight"
+  ];
   xresources.properties = {
     "Xcursor.size" = 16;
     "Xft.dpi" = 172;
