@@ -10,13 +10,18 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, nixos-generators, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, nixos-generators, nur, ... }: {
     nixosConfigurations = {
       "aly-laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          nur.modules.nixos.default
           nix-flatpak.nixosModules.nix-flatpak
           ./hw/aly-laptop.nix
           ./system/aly-laptop.nix
