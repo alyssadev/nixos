@@ -45,14 +45,9 @@
           nur.modules.nixos.default
           nix-flatpak.nixosModules.nix-flatpak
           nixvim.nixosModules.nixvim
+          ./hw/aly-server.nix
+          ./system/aly-server.nix
           # TODO
-          ./system/global.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.aly = import ./home/aly.nix;
-          }
 	];
       };
     };
