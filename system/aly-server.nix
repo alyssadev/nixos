@@ -2,9 +2,12 @@
   networking.hostName = "aly-server";
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
-    80 443 3923 5656 5030 5031 50300
+    80 443 445 3923 5656 5030 5031 50300
     4747 8989 7878 8686 13378 6767 9696 4545
-    52568
+    52568 50000
+  ];
+  networking.firewall.allowedUDPPorts = [
+    137 138 139 50000 
   ];
   services.openvpn.servers = {
     server = { config = '' config /home/aly/.secrets/server.ovpn ''; };
