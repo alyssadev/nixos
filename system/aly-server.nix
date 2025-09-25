@@ -38,4 +38,39 @@
     };
     openFirewall = true;
   };
+
+  services.samba-wsdd.enable = true;
+  services.samba = {
+    enable = true;
+    securityType = "user";
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+	"server string" = "aly-server";
+	"netbios name" = "aly-server";
+	"security" = "user";
+	"max protocol" = "smb1";
+	"hosts allow" = "192.168.0. 10.8.0. localhost 127.0.0.1";
+	"hosts deny" = "0.0.0.0/0";
+	"guest account" = "nobody";
+	"map to guest" = "bad user";
+      };
+      "storage" = {
+        "path" = "/mnt/storage";
+	"browseable" = "yes";
+	"read only" = "no";
+	"guest ok" = "no";
+	"create mask" = "0664";
+        "directory mask" = "0775";
+	"force user" = "1001";
+	"force group" = "1005";
+      };
+      "media" = {
+        "path" = "/mnt/storage/media";
+	"browseable" = "yes";
+	"read only" = "yes";
+	"guest ok" = "yes";
+      };
+    };
+  };
 })
