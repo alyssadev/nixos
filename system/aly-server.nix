@@ -2,7 +2,11 @@
   networking.hostName = "aly-server";
   system.stateVersion = "25.05";
   virtualisation.hypervGuest.enable = true;
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
+  virtualisation.oci-containers.backend = "docker";
   boot.blacklistedKernelModules = [ "hyperv_fb" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
