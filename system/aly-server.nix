@@ -42,7 +42,6 @@
   services.samba-wsdd.enable = true;
   services.samba = {
     enable = true;
-    securityType = "user";
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
