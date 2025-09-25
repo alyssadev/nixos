@@ -2,6 +2,7 @@
   networking.hostName = "aly-server";
   system.stateVersion = "25.05";
   virtualisation.hypervGuest.enable = true;
+  virtualisation.docker.enable = true;
   boot.blacklistedKernelModules = [ "hyperv_fb" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -21,7 +22,7 @@
     description = "aly";
     hashedPassword = "$y$j9T$Q.yFJjo9LMA8o.7Ac5uSr/$Y8pYIPSzCXHSd4nAlUohaaohwpquK6XEIjxFKq3J4s/";
     openssh.authorizedKeys.keys = import ../data/authorized_keys.nix;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   services.openssh = {
