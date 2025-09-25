@@ -58,6 +58,9 @@
         "workgroup" = "WORKGROUP";
 	"server string" = "aly-server";
 	"netbios name" = "aly-server";
+	"disable netbios" = "yes";
+	"wide links" = "yes";
+	"allow insecure wide links" = "yes";
 	"security" = "user";
 	"min protocol" = "SMB2_02";
 	"max protocol" = "SMB3_11";
@@ -73,17 +76,36 @@
 	"browseable" = "yes";
 	"read only" = "no";
 	"guest ok" = "no";
+	"guest only" = "no";
+	"inherit acls" = "no";
+	"inherit permissions" = "no";
+	"store dos attributes" = "no";
+	"follow symlinks" = "yes";
 	"valid users" = "aly";
 	"create mask" = "0664";
         "directory mask" = "0775";
-	"force user" = "1001";
-	"force group" = "1005";
       };
       "media" = {
         "path" = "/mnt/storage/media";
 	"browseable" = "yes";
 	"read only" = "yes";
 	"guest ok" = "yes";
+	"hide special files" = "yes";
+	"inherit acls" = "no";
+	"inherit permissions" = "no";
+	"store dos attributes" = "no";
+	"follow symlinks" = "yes";
+      };
+      "mirror" = {
+        "path" = "/mnt/storage/mirror";
+	"browseable" = "yes";
+	"read only" = "yes";
+	"guest ok" = "yes";
+	"hide special files" = "yes";
+	"inherit acls" = "no";
+	"inherit permissions" = "no";
+	"store dos attributes" = "no";
+	"follow symlinks" = "yes";
       };
     };
   };
