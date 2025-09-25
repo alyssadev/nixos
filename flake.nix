@@ -39,6 +39,22 @@
           }
         ];
       };
+      "aly-server" = nixpkgs.lib.nixosSystem {
+      	system = "x86_64-linux";
+	modules = [
+          nur.modules.nixos.default
+          nix-flatpak.nixosModules.nix-flatpak
+          nixvim.nixosModules.nixvim
+          # TODO
+          ./system/global.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.aly = import ./home/aly.nix;
+          }
+	];
+      };
     };
   };
 }
