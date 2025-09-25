@@ -1,5 +1,11 @@
 ({ config, pkgs, agenix, ... }: {
   networking.hostName = "aly-server";
+  networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [
+    80 443 3923 5656 5030 5031 50300
+    4747 8989 7878 8686 13378 6767 9696 4545
+    52568
+  ];
   services.openvpn.servers = {
     server = { config = '' config /home/aly/.secrets/server.ovpn ''; };
   };
@@ -20,8 +26,6 @@
   programs.nixvim.enable = true;
   programs.nixvim.defaultEditor = true;
   security.sudo.wheelNeedsPassword = false;
-
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Australia/Brisbane";
   users.users.aly = {
@@ -45,6 +49,7 @@
   services.samba-wsdd.enable = true;
   services.samba = {
     enable = true;
+    openFirewall = true;
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
