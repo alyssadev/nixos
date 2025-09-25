@@ -63,8 +63,10 @@
 	"max protocol" = "SMB3_11";
 	"hosts allow" = "192.168.0. 10.8.0. localhost 127.0.0.1";
 	"hosts deny" = "0.0.0.0/0";
-	"guest account" = "aly";
+	"guest account" = "nobody";
 	"map to guest" = "bad user";
+	"interfaces" = "lo eth0 docker0 tun0";
+	"bind interfaces only" = "yes";
       };
       "storage" = {
         "path" = "/mnt/storage";
