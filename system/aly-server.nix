@@ -1,5 +1,8 @@
 ({ config, pkgs, agenix, ... }: {
   networking.hostName = "aly-server";
+  services.openvpn.servers = {
+    server = { config = '' config /home/aly/.secrets/server.ovpn ''; };
+  };
   system.stateVersion = "25.05";
   virtualisation.hypervGuest.enable = true;
   virtualisation.docker = {
