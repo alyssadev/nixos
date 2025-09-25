@@ -12,15 +12,6 @@
 
   networking.networkmanager.enable = true;
 
-  services.flatpak.enable = true;
-  services.flatpak.packages = [
-    "com.moonlight_stream.Moonlight"
-  ];
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
   time.timeZone = "Australia/Brisbane";
   users.users.aly = {
     isNormalUser = true;
@@ -30,20 +21,13 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     settings = {
       X11Forwarding = true;
-      PermitRootLogin = "no"; # disable root login
-      PasswordAuthentication = true; # disable password login
+      PermitRootLogin = "no";
+      PasswordAuthentication = true;
     };
     openFirewall = true;
   };
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 })

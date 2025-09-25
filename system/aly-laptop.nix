@@ -13,4 +13,16 @@
     lidSwitchDocked = "ignore";
     lidSwitchExternalPower = "ignore";
   };
+  services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "com.moonlight_stream.Moonlight"
+  ];
+  services.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 })
