@@ -42,8 +42,8 @@
   services.samba-wsdd.enable = true;
   services.samba = {
     enable = true;
-    enableNmbd = false;
-    enableWinbindd = false;
+    nmbd.enable = false;
+    winbindd.enable = false;
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
