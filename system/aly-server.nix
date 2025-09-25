@@ -1,4 +1,4 @@
-({ config, pkgs, ... }: {
+({ config, pkgs, agenix, ... }: {
   networking.hostName = "aly-server";
   system.stateVersion = "25.05";
   virtualisation.hypervGuest.enable = true;
