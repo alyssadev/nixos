@@ -56,7 +56,8 @@
 	"server string" = "aly-server";
 	"netbios name" = "aly-server";
 	"security" = "user";
-	"max protocol" = "smb2";
+	"min protocol" = "SMB2_02";
+	"max protocol" = "SMB3_11";
 	"hosts allow" = "192.168.0. 10.8.0. localhost 127.0.0.1";
 	"hosts deny" = "0.0.0.0/0";
 	"guest account" = "aly";
