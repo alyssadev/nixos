@@ -9,6 +9,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     cargo rustc just git wget gcc gnumake autoconf automake pkg-config cifs-utils
+    btrfs-progs
   ];
   programs.nixvim.enable = true;
   programs.nixvim.defaultEditor = true;
