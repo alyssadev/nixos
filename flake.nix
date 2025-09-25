@@ -18,9 +18,11 @@
       url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.darwin.follows = "";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, nixos-generators, nur, nixvim, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, nixos-generators, nur, nixvim, agenix, ... }: {
     nixosConfigurations = {
       "aly-laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -47,6 +49,7 @@
           nixvim.nixosModules.nixvim
           ./hw/aly-server.nix
           ./system/aly-server.nix
+	  agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
