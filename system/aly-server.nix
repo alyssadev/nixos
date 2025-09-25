@@ -1,4 +1,5 @@
 ({ config, pkgs, ... }: {
+  networking.hostName = "aly-server";
   system.stateVersion = "25.05";
   virtualisation.hypervGuest.enable = true;
   boot.blacklistedKernelModules = [ "hyperv_fb" ];
