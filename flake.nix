@@ -50,6 +50,9 @@
           ./hw/aly-server.nix
           ./system/aly-server.nix
 	  agenix.nixosModules.default
+	  {
+	    environment.systemPackages = [ agenix.packages.${system}.default ];
+	  }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
