@@ -41,6 +41,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+	    home-manager.extraSpecialArgs.gui = true;
             home-manager.users.aly = import ./home/aly.nix;
           }
         ];
@@ -62,6 +63,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+	    home-manager.extraSpecialArgs.gui = false;
             home-manager.users.aly = import ./home/aly.nix;
           }
           # TODO
