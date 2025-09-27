@@ -9,6 +9,10 @@
   networking.firewall.allowedUDPPorts = [
     137 138 139 50000 
   ];
+  services.smartd = {
+    enable = true;
+    extraOptions = [ "-A /var/log/smartd/" "--interval=600" ];
+  };
   services.openvpn.servers = {
     server = { config = '' config /home/aly/.secrets/server.ovpn ''; };
   };
