@@ -3,10 +3,10 @@
   services.openvpn.servers = {
     laptop = { config = '' config /home/aly/.secrets/laptop.ovpn ''; };
   };
-  fileSystems."/mnt/media" = {
-    device = "//10.8.0.4/media";
-    fsType = "cifs";
-    options = ["ro,guest,vers=3.0,x-systemd.requires=openvpn-laptop.service,x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s"];
+  fileSystems."/mnt/storage" = {
+    device = "aly@lan.aly.pet:/mnt/storage";
+    fsType = "sshfs";
+    options = ["nodev", "noatime", "allow_other", "IdentityFile=/home/aly/.ssh/id_ed25519"];
   };
   services.logind = {
     lidSwitch = "suspend";
