@@ -37,6 +37,11 @@
           ./hw/aly-laptop.nix
           ./system/aly-laptop.nix
           ./system/global.nix
+	  {
+	    environment.systemPackages = [
+	      nix-search.packages.x86_64-linux.default
+	    ];
+	  }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
