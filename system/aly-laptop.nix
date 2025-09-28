@@ -6,7 +6,7 @@
   fileSystems."/mnt/storage" = {
     device = "aly@lan.aly.pet:/mnt/storage";
     fsType = "sshfs";
-    options = ["nodev", "noatime", "allow_other", "IdentityFile=/home/aly/.ssh/id_ed25519"];
+    options = ["nodev,noatime,allow_other,IdentityFile=/home/aly/.ssh/id_ed25519"];
   };
   services.logind = {
     lidSwitch = "suspend";
