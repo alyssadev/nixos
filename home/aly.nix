@@ -11,10 +11,16 @@
     neofetch nnn zip xz unzip p7zip ripgrep jq yq-go mtr iperf3 dnsutils
     ldns aria2 socat nmap ipcalc file which tree gnused gnutar gawk zstd
     gnupg btop iotop iftop strace ltrace lsof sysstat lm_sensors ethtool
-    pciutils usbutils nix-output-monitor
+    pciutils usbutils nix-output-monitor virtualenv python3 gh
   ] ++ lib.optionals gui [
-    gnome-tweaks obs-studio rpi-imager google-cloud-sdk supersonic
+    gnome-tweaks obs-studio rpi-imager google-cloud-sdk supersonic mpv
   ];
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
 
   programs.firefox = lib.mkIf gui {
     enable = true;
