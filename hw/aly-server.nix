@@ -27,6 +27,16 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/mnt/storage/media/moviesoverlay" = {
+    device = "overlay";
+    fsType = "overlay";
+    options = [
+      "lowerdir=/mnt/storage/media/movies2:/mnt/storage/media/movies"
+      "x-systemd.after=mnt-storage.mount"
+      "x-systemd.requires=mnt-storage.mount"
+    ];
+  };
+
   fileSystems."/mnt/storage/media/tvoverlay" = {
     device = "overlay";
     fsType = "overlay";
