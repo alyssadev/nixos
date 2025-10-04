@@ -27,6 +27,16 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/mnt/storage/media/tvoverlay" = {
+    device = "overlay";
+    fsType = "overlay";
+    options = [
+      "lowerdir=/mnt/storage/media/tv2:/mnt/storage/media/tv"
+      "x-systemd.after=mnt-storage.mount"
+      "x-systemd.requires=mnt-storage.mount"
+    ];
+  };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
