@@ -12,6 +12,7 @@
     lidSwitch = "suspend";
     lidSwitchDocked = "ignore";
     lidSwitchExternalPower = "ignore";
+    powerKey = "ignore";
   };
   services.flatpak.enable = true;
   services.flatpak.packages = [
