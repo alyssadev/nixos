@@ -12,6 +12,12 @@
   services.openvpn.servers = {
     server = { config = '' config /home/aly/.secrets/server.ovpn ''; };
   };
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "* * * * * /mnt/storage/media/randomintro.sh"
+    ];
+  };
   system.stateVersion = "25.05";
   virtualisation.hypervGuest.enable = true;
   virtualisation.docker = {
