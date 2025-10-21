@@ -42,12 +42,13 @@
 	      nix-search.packages.x86_64-linux.default
 	    ];
 	  }
-          home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-	    home-manager.extraSpecialArgs.gui = true;
-            home-manager.users.aly = import ./home/aly.nix;
+            useGlobalPkgs = true;
+            useUserPackages = true;
+	    extraSpecialArgs.gui = true;
+            users.aly = import ./home/aly.nix;
+	    backupFileExtension = "bak";
           }
         ];
       };
