@@ -15,7 +15,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "0 3 * * 0,2,4,6 /mnt/storage/media/randomintro.sh"
+      "* * * * * /mnt/storage/media/randomintro.sh"
     ];
   };
   system.stateVersion = "25.05";

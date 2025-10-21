@@ -9,13 +9,14 @@ boot:
 
 commit:
   git add .
+  -git pull origin main
   -git commit -a -m "update"
 
 _switch:
   nixos-rebuild switch --flake . --use-remote-sudo
 
 push:
-  git push origin --all
+  git push origin main
 
 switch: commit _switch push
 

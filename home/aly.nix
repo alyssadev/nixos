@@ -22,17 +22,6 @@
     nix-direnv.enable = true;
   };
 
-  programs.firefox = lib.mkIf gui {
-    enable = true;
-    profiles.default = {
-      extensions = {
-        packages = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin bitwarden darkreader indie-wiki-buddy sponsorblock
-        ];
-      };
-    };
-  };
-
   programs.git = {
     enable = true;
     userName = "alydev";
