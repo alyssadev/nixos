@@ -4,10 +4,16 @@
   boot.loader.efi.canTouchEfiVariables = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
-    cargo rustc just git wget gcc gnumake autoconf automake pkg-config cifs-utils ntfs3g
+    cargo rustc just git wget gcc gnumake autoconf automake pkg-config cifs-utils ntfs3g nixd
   ];
-  programs.nixvim.enable = true;
-  programs.nixvim.defaultEditor = true;
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+    plugins.lsp = {
+      enable = true;
+      servers.nixd.enable = true;
+    };
+  };
   security.sudo.wheelNeedsPassword = false;
 
   networking.networkmanager.enable = true;
