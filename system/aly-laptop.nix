@@ -4,7 +4,7 @@
     laptop = { config = '' config /home/aly/.secrets/laptop.ovpn ''; };
   };
   fileSystems."/mnt/storage" = {
-    device = "aly@lan.aly.pet:/mnt/storage";
+    device = "aly@vpn.aly.pet:/mnt/storage";
     fsType = "sshfs";
     options = ["nodev,noatime,allow_other,IdentityFile=/home/aly/.ssh/id_ed25519"];
   };
