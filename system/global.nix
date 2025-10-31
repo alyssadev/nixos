@@ -4,7 +4,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
-    cargo rustc just git wget gcc gnumake autoconf automake pkg-config cifs-utils ntfs3g nixd
+    cargo rustc just git wget gcc gnumake autoconf automake pkg-config cifs-utils ntfs3g yt-dlp
   ];
   programs.nixvim = {
     enable = true;
