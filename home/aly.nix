@@ -45,7 +45,8 @@
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       alias vim='nvim'
-      nrun() { nix shell nixpkgs#$1 -c "''${@:2}" ; }
+      nrun()  { nix run nixpkgs#$1 -- "''${@:2}" ; }
+      nrunc() { nix shell nixpkgs#$1 -c "''${@:2}" ; }
     '';
   };
   home.stateVersion = "25.05";

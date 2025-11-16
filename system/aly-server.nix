@@ -16,6 +16,7 @@
     enable = true;
     systemCronJobs = [
       "0 * * * * /mnt/storage/media/randomintro.sh"
+      "* * * * * sudo chown srv:media /mnt/storage/media/downloads -R; sudo chmod g+w /mnt/storage/media/downloads -R"
     ];
   };
   system.stateVersion = "25.05";
