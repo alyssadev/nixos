@@ -46,6 +46,21 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
+#  services.smartd = {
+#    enable = true;
+#    devices = [
+#      {
+#        device = "/dev/disk/by-id/scsi-350014e2eb8b19461";
+#      }
+#      {
+#        device = "/dev/disk/by-id/scsi-35000cc2a5cce6c33";
+#      }
+#      {
+#        device = "/dev/disk/by-id/scsi-35000c500db1f5eb8";
+#      }
+#    ];
+#  };
+
   services.openssh = {
     enable = true;
     settings = {
