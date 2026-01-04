@@ -45,6 +45,12 @@
     openssh.authorizedKeys.keys = import ../data/authorized_keys.nix;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
+  users.users.yasha = {
+    isNormalUser = true;
+    description = "yasha";
+    hashedPassword = "$y$j9T$Q.yFJjo9LMA8o.7Ac5uSr/$Y8pYIPSzCXHSd4nAlUohaaohwpquK6XEIjxFKq3J4s/";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+  };
 
 #  services.smartd = {
 #    enable = true;
@@ -103,7 +109,7 @@
 	"inherit permissions" = "no";
 	"store dos attributes" = "no";
 	"follow symlinks" = "yes";
-	"valid users" = "aly";
+	"valid users" = "aly yasha";
 	"create mask" = "0664";
         "directory mask" = "0775";
       };
