@@ -43,13 +43,13 @@
     description = "aly";
     hashedPassword = "$y$j9T$Q.yFJjo9LMA8o.7Ac5uSr/$Y8pYIPSzCXHSd4nAlUohaaohwpquK6XEIjxFKq3J4s/";
     openssh.authorizedKeys.keys = import ../data/authorized_keys.nix;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "media" ];
   };
   users.users.yasha = {
     isNormalUser = true;
     description = "yasha";
     hashedPassword = "$y$j9T$EL1pxuTdXOyFXwbiT7P7s/$8Yzfss3xR9oqHDk29h.non19idZvSFDnHK.fqZaCRd9";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "media" ];
   };
 
 #  services.smartd = {
