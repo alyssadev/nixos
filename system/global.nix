@@ -5,13 +5,10 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     cargo rustc just git wget gcc gnumake autoconf automake pkg-config cifs-utils ntfs3g yt-dlp libgcc
-    gnumake cmake extra-cmake-modules
+    gnumake cmake extra-cmake-modules zlib
   ];
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [
-      stdenv.cc.cc.lib
-    ];
   };
   programs.nixvim = {
     enable = true;
