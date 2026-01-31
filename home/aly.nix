@@ -11,7 +11,7 @@
     neofetch nnn zip xz unzip p7zip ripgrep jq yq-go mtr iperf3 dnsutils
     ldns aria2 socat nmap ipcalc file which tree gnused gnutar gawk zstd
     gnupg btop iotop iftop strace ltrace lsof sysstat lm_sensors ethtool
-    pciutils usbutils nix-output-monitor virtualenv python3 gh
+    pciutils usbutils nix-output-monitor virtualenv python3 gh rclone
   ] ++ lib.optionals gui [
     gnome-tweaks obs-studio rpi-imager google-cloud-sdk supersonic mpv
   ];
@@ -43,7 +43,7 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       alias vim='nvim'
       nrun()  { nix run nixpkgs#$1 -- "''${@:2}" ; }
       nrunc() { nix shell nixpkgs#$1 -c "''${@:2}" ; }
